@@ -2,6 +2,10 @@
 
 Este repositório é destinado a guardar diversos projetos desenvolvidos com o framework Django. Ele serve tanto para fins de teste quanto para a realização de trabalhos e experimentos com Django.
 
+<p align="center">
+  <img src="img/programer.gif" alt="Imagem Ilustrativa">
+</p>
+
 ## Estrutura do Repositório
 
 - `venv/`: Ambiente virtual Python utilizado para gerenciar as dependências dos projetos. 
