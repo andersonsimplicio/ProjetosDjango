@@ -1,0 +1,31 @@
+# Ignore the virtual environment folder
+venv/
+
+# Ignore Python bytecode
+*.pyc
+__pycache__/
+
+# Ignore Django migration files
+*/migrations/*.pyc
+*/migrations/__pycache__/
+*/migrations/*.py
+
+# Ignore SQLite database files
+*.sqlite3
+
+# Ignore other Django-related files
+*.log
+*.pot
+*.pyc
+*.mo
+*.swp
+
+# Ignore media and static files (if not stored in version control)
+media/
+staticfiles/
+
+# Ignore VSCode settings folder
+.vscode/
+
+# Ignore PyCharm settings folder
+.idea/
