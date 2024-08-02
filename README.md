@@ -10,7 +10,7 @@ Este repositório é destinado a guardar diversos projetos desenvolvidos com o f
 
 - `venv/`: Ambiente virtual Python utilizado para gerenciar as dependências dos projetos. 
 - `manageruser/`: Criando um sistema de gerenciamento de usuários personalizado no Django.
-- `ProjetoB/`: Diretório contendo outro projeto Django específico.
+- `space/`: Criando um blog para visualizar fotos do espaço.
 
 Cada projeto Django possui sua própria estrutura de diretórios e arquivos, incluindo pastas como `migrations`, `static`, `templates`, e outros componentes típicos de um projeto Django.
 
@@ -22,7 +22,7 @@ Cada projeto Django possui sua própria estrutura de diretórios e arquivos, inc
    cd seu_repositorio
 
 2. **Configurando a venv**
-   python -m venv venv
-   source venv/bin/activate
+   - python -m venv venv
+   - source venv/bin/activate
 3. **Instalar dependências**
-   pip install -r requirements.txt  
+   - pip install -r requirements.txt  
