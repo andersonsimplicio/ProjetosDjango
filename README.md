@@ -10,7 +10,12 @@ Este repositório é destinado a guardar diversos projetos desenvolvidos com o f
 
 - `venv/`: Ambiente virtual Python utilizado para gerenciar as dependências dos projetos. 
 - `manageruser/`: Criando um sistema de gerenciamento de usuários personalizado no Django.
+
 - `space/`: Criando um blog para visualizar fotos do espaço.
+<div align="center">
+    <img src="img/space.png" style="border-radius: 15px; border: 2px solid orange;" alt="Imagem do Blog" width="500">
+</div>
+
 
 Cada projeto Django possui sua própria estrutura de diretórios e arquivos, incluindo pastas como `migrations`, `static`, `templates`, e outros componentes típicos de um projeto Django.
 
