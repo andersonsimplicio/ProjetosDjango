@@ -1,9 +1,7 @@
 from django.shortcuts import render
 
-
-
 def index(request):
-    return render(request,template_name='home.html')
+    return render(request, 'home.html')
 
 def imagem(request):
-    return render(request,template_name='imagem.html')
+    return render(request, 'imagem.html')
