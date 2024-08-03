@@ -13,7 +13,7 @@ Este repositório é destinado a guardar diversos projetos desenvolvidos com o f
 
 - `space/`: Criando um blog para visualizar fotos do espaço.
 <div align="center">
-    <img src="img/space.png" style="border-radius: 15 px; border: 2 px;" alt="Imagem do Blog" width="500">
+    <img src="img/space.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
 </div>
 
 
