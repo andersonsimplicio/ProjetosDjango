@@ -27,13 +27,6 @@
         <!-- O conteúdo específico da página será inserido aqui -->
         {% endblock %}
     </main>
-    <footer class="rodape">
-        <div class="rodape__icones">
-            <a href="https://www.instagram.com/aluraonline/" target=”_blank” >
-                <img src="{% static '/assets/ícones/1x/instagram.png' %}" alt="ícone instagram">
-            </a>
-        </div>
-        <p class="rodape__texto">Este projeto foi baseado no projeto da Alura</p>
-    </footer>
+    {% include 'partials/_footer.html' %}
 </body>
 </html>
