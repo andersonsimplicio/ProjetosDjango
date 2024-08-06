@@ -13,6 +13,7 @@ class Fotografia(models.Model):
         ("GALAXIA","galaxia"),
         ("PLANETA","planeta")
     ]
+    
     nome = models.CharField(max_length=100,blank=True,null=False)
     legenda = models.CharField(max_length=150,blank=True,null=False)
     categoria = models.CharField(max_length=150,choices=opcoes_categoria,default="")
@@ -20,5 +21,7 @@ class Fotografia(models.Model):
     foto = models.ImageField(upload_to=caminho,blank=True,null=False)
     publicada = models.BooleanField(default=False)
     date = models.DateTimeField(default=datetime.now,blank=False)
+
+
     def __str__(self) -> str:
         return f"Fotografia [nome={self.nome}]"
