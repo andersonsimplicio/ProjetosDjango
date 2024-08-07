@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css%}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+{% endblock %}
+{% block content %}
+<section class="galeria" style="margin-left: 5em">
+    <form action="{% url 'cadastro' %}" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
+            <label for="{{form.nome_cadastro.id_for_label}}" style="color:#D9D9D9; margin-bottom: 5px;"><b>{{form.nome_cadastro.label}}</b></label>
+            {{form.nome_cadastro}}
+            </div>
+            <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
+                <label for="{{form.email.id_for_label}}" style="color:#D9D9D9; margin-bottom: 5px;"><b>{{form.email.label}}</b></label>
+                {{form.email}}
+            </div>
+            <div class="col-12 col-lg-6" style="margin-bottom: 10px;">
+                <label for="{{form.senha1.id_for_label}}" style="color:#D9D9D9; margin-bottom: 5px;"><b>{{form.senha1.label}}</b></label>
+                {{form.senha1}}
+            </div>
+            <div class="col-12 col-lg-6" style="margin-bottom: 10px;">
+                <label for="{{form.senha2.id_for_label}}" style="color:#D9D9D9; margin-bottom: 5px;"><b>{{form.senha2.label}}</b></label>
+                {{form.senha2}}
+            </div>
+            <div class="col-12 text-center">
+                <button class="btn btn-success col-3" style="padding: top 5px;" type="submit">Criar sua conta</button>
+            </div>
+        </div>
+    </form>
+</section>
+</main>
+{% endblock %}

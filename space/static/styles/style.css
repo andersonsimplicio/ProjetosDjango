@@ -274,6 +274,11 @@ table {
     margin-right: 1.5rem;
 }
 
+.menu-lateral__navegacao img {
+    margin-right: 1.5rem;
+    width: 1.9rem;
+    height: auto;
+}
 .pagina-inicial {
     max-width: 1440px;
     padding: 1.5rem;
