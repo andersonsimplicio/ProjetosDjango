@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.galeria.apps.GaleriaConfig',
-    'apps.usuarios.apps.UsuariosConfig'
+    'apps.usuarios.apps.UsuariosConfig',   
 ]
 
 MIDDLEWARE = [
@@ -123,7 +123,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'core/static')
+    os.path.join(BASE_DIR, 'core/static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -136,3 +136,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 MEDIA_URL= "media/"
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.SUCCESS: "success",
+    messages.ERROR: "danger",
+}
+
+LOGIN_URL = '/login/'
