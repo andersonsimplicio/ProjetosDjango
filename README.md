@@ -11,11 +11,25 @@ Este repositório é destinado a guardar diversos projetos desenvolvidos com o f
 - `venv/`: Ambiente virtual Python utilizado para gerenciar as dependências dos projetos. 
 - `manageruser/`: Criando um sistema de gerenciamento de usuários personalizado no Django.
 
-- `space/`: Criando um blog para visualizar fotos do espaço.
+### `space/`
+- Criando um blog para visualizar fotos do espaço.
 <div align="center">
     <img src="img/space.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
 </div>
 
+### `landpage/`
+- Testando a configuração de tailwind + Django
+   <div align="center">
+    <img src="img/djangotailwind.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
+   </div>
+## 1. Instale o Node.js
+- sudo apt install nodejs
+- python -m pip install django-tailwind
+- python manage.py tailwind install
+
+## 2. Para executar:
+1. python manage.py tailwind start
+2. python manage.py runserver
 
 Cada projeto Django possui sua própria estrutura de diretórios e arquivos, incluindo pastas como `migrations`, `static`, `templates`, e outros componentes típicos de um projeto Django.
 
