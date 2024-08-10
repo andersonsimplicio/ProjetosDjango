@@ -10,7 +10,7 @@ class FotografiaForms(forms.ModelForm):
             'nome':"Nome da Figura",
             'descricao':'Descrição',
             'date':"Data de resgistro",
-            "usuario":"usuário"
+            "usuario":"Usuário"
         }
 
         widgets = {

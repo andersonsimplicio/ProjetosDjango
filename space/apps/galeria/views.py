@@ -16,9 +16,14 @@ def index(request):
 
 def imagem(request,foto_id):
     fotografia = Fotografia.objects.get(pk=foto_id)
+    if fotografia.usuario is not None:
+        autor = request.user.id == fotografia.usuario.id
+    else:
+        autor =False
     context = {
         "fotografia":fotografia,
-        "user": request.user  # Adiciona o usuário ao contexto
+        "user": request.user, # Adiciona o usuário ao contexto
+        "autor":autor
     }
     return render(request, 'imagem.html',context)
 
@@ -36,22 +41,53 @@ def nova_image(request):
     
     if request.method == "POST":
         form = FotografiaForms(request.POST,request.FILES)
+        form.data = form.data.copy()
+        form.data['usuario'] =request.user.id
         if form.is_valid():
             messages.success(request,"Nova fotografia cadastrada")
-            #form.save()
+            form.save()
             return redirect('home')
         else:
-            messages.error(request,"Erro ao cadastrar")
-            print(form.errors)
+            messages.error(request,f"{form.errors.as_text()}")
+           
     
     return render(request, 'nova_imagem.html',{"form":form,"user":request.user})
 
 @login_required
-def editar_image(request):
-
-     return render(request, 'editar_imagem.html',{})
+def editar_image(request,foto_id):
+    foto = Fotografia.objects.get(pk=foto_id)
+    form = FotografiaForms(instance=foto,initial={'usuario': request.user.username})
+    context = {
+         "form":form,
+         "user":request.user.username,
+         "foto_id":foto_id,
+     }
+    if request.method == 'POST':
+        form = FotografiaForms(request.POST,request.FILES,instance=foto)
+        form.data = form.data.copy()
+        form.data['usuario'] =request.user.id
+        if form.is_valid():  
+            messages.success(request,"Fotografia editada com sucesso")
+            form.save()
+            return redirect('home')
+        else:
+            messages.error(request,f"{form.errors.as_text()}")
+         
+    return render(request, 'editar_imagem.html',context)
 
 @login_required
-def deletar_image(request):
+def deletar_image(request,foto_id):
+    foto = Fotografia.objects.get(pk=foto_id)
+    foto.delete()
+    messages.success(request,"Fotografia apagada com sucesso!")
+    return redirect('home')
 
-     return render(request, 'deletar_imagem.html',{})
+def filtro(request,categoria):
+    fotografias= Fotografia.objects.order_by("date").filter(publicada=True,categoria=categoria)
+
+    context = {
+        "cards": fotografias,
+        "user": request.user  # Adiciona o usuário ao contexto
+    }
+        
+    return render(request, 'home.html',context)

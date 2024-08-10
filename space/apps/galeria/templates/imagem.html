@@ -11,7 +11,14 @@
                                 <p class="imagem__descricao">{{fotografia.descricao}}</p>
                                 <p class="imagem__texto">FONTE: {{fotografia.legenda}}</p>
                             </div>
+                           
                         </div>
+                        {%if autor %}
+                        <div>
+                            <a href="{% url 'editar-imagem' fotografia.id %}"> <button class="btn btn-success col-3" style="padding: top 5px;">Editar</button></a>
+                            <a href="{% url 'delete-imagem' fotografia.id %}"> <button class="btn btn-danger col-3" style="padding: top 10px;">deletar</button></a>
+                        </div>
+                        {% endif %}
                     </div>
                 </section>
             </section>
