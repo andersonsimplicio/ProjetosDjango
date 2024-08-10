@@ -22,14 +22,7 @@ Este repositório é destinado a guardar diversos projetos desenvolvidos com o f
    <div align="center">
     <img src="img/djangotailwind.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
    </div>
-## 1. Instale o Node.js
-- sudo apt install nodejs
-- python -m pip install django-tailwind
-- python manage.py tailwind install
 
-## 2. Para executar:
-1. python manage.py tailwind start
-2. python manage.py runserver
 
 Cada projeto Django possui sua própria estrutura de diretórios e arquivos, incluindo pastas como `migrations`, `static`, `templates`, e outros componentes típicos de um projeto Django.
 
