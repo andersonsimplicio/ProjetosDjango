@@ -17,10 +17,10 @@ Este repositório é destinado a guardar diversos projetos desenvolvidos com o f
     <img src="img/space.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
 </div>
 
-### `landpage/`
+### `newletter/`
 - Testando a configuração de tailwind + Django
    <div align="center">
-    <img src="landpage/core/static/assets/img/django-tailwind.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
+    <img src="newletter/core/static/assets/img/django-tailwind.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
    </div>
 
 
