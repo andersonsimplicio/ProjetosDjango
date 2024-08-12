@@ -20,7 +20,7 @@ Este repositório é destinado a guardar diversos projetos desenvolvidos com o f
 ### `landpage/`
 - Testando a configuração de tailwind + Django
    <div align="center">
-    <img src="img/djangotailwind.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
+    <img src="landpage/core/static/assets/img/django-tailwind.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
    </div>
 
 

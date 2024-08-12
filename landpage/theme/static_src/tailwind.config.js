@@ -42,7 +42,32 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                azul: {
+                    claro: '#2D8BCB',
+                    escuro: '#0D3640',
+                    hove: '#2C87BF'
+                }
+            },
+            fontFamily:{
+                inter:['Inter','sans-serif']
+             },
+             keyframes:{
+                sino_kf: {
+                   '0%, 100%':{
+                     transform:'rotate(-10deg)'
+                   },
+                   '50%':{
+                      transform:'rotate(10deg)'
+                   }
+                }
+             }
+             ,
+             animation:{
+                sino: 'sino_kf 0.31s ease-in-out infinite'
+             }
+        },
     },
     plugins: [
         /**
