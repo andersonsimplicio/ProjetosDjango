@@ -23,6 +23,12 @@ Este repositório é destinado a guardar diversos projetos desenvolvidos com o f
     <img src="newletter/core/static/assets/img/django-tailwind.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
    </div>
 
+### `receitas/`
+- Testando a configuração de Vue 3 + Django
+   <div align="center">
+    <img src="img/receitas.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
+   </div>
+
 
 Cada projeto Django possui sua própria estrutura de diretórios e arquivos, incluindo pastas como `migrations`, `static`, `templates`, e outros componentes típicos de um projeto Django.
 
