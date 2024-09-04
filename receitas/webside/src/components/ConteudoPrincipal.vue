@@ -1,54 +1,30 @@
 <script lang="ts">
-import { ref, onMounted, h } from 'vue';
+import type IngredienteIterface from '@/interfaces/IngredienteInteface';
 import SelecionarIngredientes from './SelecionarIngredientes.vue';
+import SuaLista from './SuaLista.vue';
 
-import axios from 'axios';
-
-interface Ingrediente {
-  nome: string;
-}
-
-export default {
+export default { 
   data(){
-    const ingredientes = ref<Ingrediente[]>([]);
-    const carregarIngredientes = async (): Promise<void> => {
-      try {
-        const response = await axios.get<Ingrediente[]>('http://localhost:8000/ingredientes/');
-        ingredientes.value = response.data; // Atualiza a lista de ingredientes
-        console.log('Dados recebidos da API:', response.data);
-      } catch (error) {
-        console.error('Erro ao carregar ingredientes:', error);
-      }
-    };
-    onMounted(() => {
-      console.log('Antes da requisição');
-      
-      carregarIngredientes();
-    });
-
-    return {
-      ingredientes
+   
+    return{
+      ingredientes: [] as IngredienteIterface[]
     }
   },
-  components:{SelecionarIngredientes}
+  components:{SelecionarIngredientes,SuaLista},
+  methods:{
+    adcionarIngredientes(ingrediente:string){
+      this.ingredientes.push({nome:ingrediente})
+    }
+  }
 }
 </script>
 
 <template>
     <main class="conteudo-principal">
-        <section>
-            <span class="subtitulo-lg sua-lista-texto">
-                sua lista
-            </span>
-            <ul v-if="ingredientes.length" class="ingrediente-sua-lista">
-                <li v-for="ingrediente in ingredientes" :key="ingrediente.nome" class="ingrediente">{{ ingrediente.nome }}</li>
-            </ul>
-            <p v-else="ingredientes.length" class="paragrafo lista-vazia">
-                <img src="../assets/icones/lista-vazia.svg" alt="" class="src">
-                Não lista de ingredientes
-            </p>
-        </section>
-        <SelecionarIngredientes/>
+        <SuaLista :ingredientes="ingredientes"/>
+        <SelecionarIngredientes
+          @adicionar-ingrediente="adcionarIngredientes($event)"
+        />
     </main>
 
 
@@ -72,37 +48,6 @@ export default {
   display: block;
   text-align: center;
   margin-bottom: 1.5rem;
-}
-
-.ingredientes-sua-lista {
-  display: flex;
-  justify-content: center;
-  gap: 1rem 1.5rem;
-  flex-wrap: wrap;
-}
-
-.ingrediente {
-  display: inline-block;
-  border-radius: 0.5rem;
-  min-width: 4.25rem;
-  padding: 0.5rem;
-  margin: 0.5rem;
-  text-align: center;
-    transition: 0.2s;
-    color: var(--creme, #FFFAF3);
-  background: var(--coral, #F0633C);
-  font-weight: 700;
-}
-
-.lista-vazia {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.25rem;
-
-  color: var(--coral, #F0633C);
-  text-align: center;
 }
 
 @media only screen and (max-width: 1300px) {
