@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue';
 import { obterCategorias } from '@/api/obterCategorias';
 import type ICategoria from '@/interfaces/ICategoria';
 import CardCategoria from './CardCategoria.vue';
-
+import BotaoPrincipal from './BotaoPrincipal.vue';
 
 export default {
     data(){
@@ -16,12 +16,10 @@ export default {
       categorias,
     };
   },
-  components:{CardCategoria},
-  emits:['adicionarIngrediente']
+  components:{CardCategoria,BotaoPrincipal},
+  emits:['adicionarIngrediente','removerIngrediente']
 }
 </script>
-
-
 <template>
     <sectio class="selecionar-ingredientes">
       <h1 class="cabecalho titulo-ingredientes">Ingredientes</h1>
@@ -32,12 +30,14 @@ export default {
         <li v-for="categoria in categorias" :key="categoria.nome">
             <CardCategoria :categoria="categoria" 
             @adicionarIngrediente="$emit('adicionarIngrediente',$event)"
+            @removerIngrediente="$emit('removerIngrediente',$event)"
             />
         </li>
       </ul>
       <p class="paragrafo dica"> 
         * presta atenção na receita
       </p>
+      <BotaoPrincipal texto="Buscar receitas!" />
     </sectio>
 </template>
 

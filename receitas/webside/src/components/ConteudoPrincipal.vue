@@ -2,6 +2,7 @@
 import type IngredienteIterface from '@/interfaces/IngredienteInteface';
 import SelecionarIngredientes from './SelecionarIngredientes.vue';
 import SuaLista from './SuaLista.vue';
+import Rodape from './Rodape.vue';
 
 export default { 
   data(){
@@ -13,8 +14,13 @@ export default {
   components:{SelecionarIngredientes,SuaLista},
   methods:{
     adcionarIngredientes(ingrediente:string){
-      this.ingredientes.push({nome:ingrediente})
-    }
+      this.ingredientes.push({nome:ingrediente});
+      console.log("Teste");
+    },
+    removerIngrediente(ingrediente: string) {
+      console.log("Teste");
+      this.ingredientes = this.ingredientes.filter(iLista => ingrediente !== iLista.nome);
+    },
   }
 }
 </script>
@@ -24,10 +30,9 @@ export default {
         <SuaLista :ingredientes="ingredientes"/>
         <SelecionarIngredientes
           @adicionar-ingrediente="adcionarIngredientes($event)"
+          @remover-ingrediente="removerIngrediente($event)"
         />
     </main>
-
-
 </template>
 
 <style scoped>
