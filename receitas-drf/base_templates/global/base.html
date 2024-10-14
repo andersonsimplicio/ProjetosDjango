@@ -1,9 +1,17 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
+<head>
 {% include 'partials/head.html' %}
-<body>
-    {% block main %}
 
-    {% endblock %}
+<title>{% block title %}{% endblock title %} | Receitas</title>
+</head>
+<body>
+    {% include "receitas/partials/header.html" %}
+    {% include "receitas/partials/search.html" %}
+    <main class="main-content-container">
+    {% block main %}{% endblock %}
+    </main>
+    {% include 'receitas/partials/footer.html' %}
 </body>
 </html>

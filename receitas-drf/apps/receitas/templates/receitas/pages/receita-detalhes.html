@@ -1,0 +1,10 @@
+{% extends "global/base.html" %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock title %}
+{% block main %}       
+    <div class="main-content main-content-detail container">  
+            {% include 'receitas/partials/receita.html' %}
+    </div>
+{% endblock %}
+

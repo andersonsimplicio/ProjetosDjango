@@ -24,7 +24,7 @@
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: var(--spacing-gutter-large);
 }
-
+/* CSS do buscador */
 .search-form {
     border: .2rem solid var(--color-primary-dark);
     max-width: 64rem;
@@ -62,7 +62,7 @@
     color: var(--color-primary);
 }
 
-
+/* Criando card*/
 .recipe {
     background: var(--color-white);
     box-shadow: -5px 5px 10px rgba(0, 0, 0, .2);
@@ -74,9 +74,12 @@
 .recipe img {
     max-width: 100%;
 }
+
 .recipe-list-item {
     max-width: 64rem;
+    height: fit-content;/*ajustando altura do elemento img*/
 }
+
 .recipe-list-item:hover {
     transform: scale(1.02);
     box-shadow: -8px 8px 18px rgba(0, 0, 0, .25);
@@ -86,6 +89,13 @@
     padding: var(--spacing-gutter-medium);
     padding-bottom: 2rem;
 }
+
+.recipe-title-container a {
+    text-decoration: none;
+    color: var(--color-primary-dark);
+}
+
+
 .recipe-author {
     padding: 0 var(--spacing-gutter-medium);
 }
@@ -135,4 +145,37 @@
 }
 .recipe-footer a:hover {
     filter: brightness(2);
+}
+
+
+
+.main-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-primary-dark);
+    color: var(--color-white);
+    padding: var(--spacing-gutter-large);
+}
+.main-footer a {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: all 300ms ease-in-out;
+}
+.main-footer a:hover {
+    filter: brightness(.8);
+}
+
+/* conteudo da pagina de detalhe */
+.main-content-detail  .recipe-list-item {
+    max-width: 84rem;
+    margin: 0 auto;
+  }
+  .main-content-detail .recipe-list-item:hover {
+    transform: scale(1);
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+.preparation-steps {
+    padding: var(--spacing-gutter-medium);
 }
