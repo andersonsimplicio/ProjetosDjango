@@ -1,20 +1,19 @@
 from django.test import TestCase
+from apps.receitas.models import Categoria, Receita,User
 
-#Nunca esquecer de passa caminho absoluto apps...
-from apps.receitas.models import Categoria, Receita, User
 
-class ReceitaModelTest(TestCase):
+class RecipeTestBase(TestCase):
     
-    def test_recipe_home_template_loads_recipes(self):
+    def setUp(self) -> None:
         category = Categoria.objects.create(name='Categoria')
         author = User.objects.create_user(
             first_name='user',
             last_name='name',
-            username='username',
+            username='usernameteste',
             password='123456',
             email='username@email.com',
         )
-        recipe =Receita.objects.create(
+        recipe = Receita.objects.create(
             category=category,
             author=author,
             title='Recipe Title',
@@ -28,4 +27,7 @@ class ReceitaModelTest(TestCase):
             preparation_steps_is_html=False,
             is_published=True,
         )
-        assert 1 == 1
+
+        # Imprime o ID da receita criada
+        print(f"ID da receita criada: {recipe.id}")
+        return super().setUp()
