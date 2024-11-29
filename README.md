@@ -29,6 +29,22 @@ Este repositório é destinado a guardar diversos projetos desenvolvidos com o f
     <img src="img/receitas.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
    </div>
 
+### `receitas-drf/`
+- Testando a configuração + Django + pytest + DjangoRestFrameWork
+   <div align="center">
+    <img src="img/receitas-drf.png" style="border-radius: 15px; border: 1px solid orange;" alt="Imagem do Blog" width="500">
+    <div align="left">
+    <p>Comando para Test<p/>
+    <ul>
+      <li><strong>pytest</strong> apps/receitas/tests/test_recipe_views.py</li>
+      <li><strong>pytest</strong> apps/receitas/tests/receita_model_test.py</li>
+      <li><strong>pytest</strong> apps/receitas/tests/receita_url_test.py</li>
+      <li><strong>pytest</strong> apps/receitas/tests/test_recipe_base.py</li>
+    <ul>
+   </div>
+
+   </div>
+
 
 Cada projeto Django possui sua própria estrutura de diretórios e arquivos, incluindo pastas como `migrations`, `static`, `templates`, e outros componentes típicos de um projeto Django.
 
