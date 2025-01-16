@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import resolve, reverse
 #Nunca esquecer de passa caminho absoluto apps...
-from apps.receitas.views import home,categoria,receita
+from apps.receitas.views import home,categoria,receita,search
 from django.contrib.auth.models import User
 from .test_recipe_base import RecipeTestBase
 from unittest import skip
@@ -102,7 +102,7 @@ class RecipeViewsTest(RecipeTestBase):
         self.assertIn(needed_title, content)
         
     def test_recipe_detail_template_loads_the_corrects_recippes(self):
-        
+                
         needed_title = 'This is a detail page - It load one recipe'
         # Need a recipe for this test
         self.make_recipe(title=needed_title)
@@ -110,5 +110,33 @@ class RecipeViewsTest(RecipeTestBase):
         content = response.content.decode('utf-8')
         # Check if one recipe exists
         self.assertIn(needed_title, content)
+    
+    
+    def test_recipe_search_uses_correct_view_function(self):
+        resolved = resolve(reverse('apps.receitas:search'))
+        self.assertIs(resolved.func,search)
+    
+    def test_recipe_search_loads_correct_template(self):
+        url = reverse('apps.receitas:search')
+        response = self.client.get(url, {'q': 'bolo'})
+        self.assertTemplateUsed(response, 'receitas/pages/search.html')
+        self.assertEqual(response.status_code, 200)
+    
+    def test_recipe_search_raises_404_if_no_search_term(self):
+        url = reverse('apps.receitas:search')
+        response = self.client.get(url) 
+        '''
+        Na falta do termo q de pesquisa haverá um erro  404
+        
+        '''
+        self.assertEqual(response.status_code, 404)
+        
+    def test_receita_conteudo_ola(self):
+        url = reverse('apps.receitas:search')
+        response = self.client.get(f'{url}?q=bolo')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "olá")
+    
+   
         
     

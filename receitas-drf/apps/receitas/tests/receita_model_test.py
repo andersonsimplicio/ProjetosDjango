@@ -2,7 +2,13 @@ from django.test import TestCase
 from django.urls import reverse
 #Nunca esquecer de passa caminho absoluto apps...
 from apps.receitas.models import Categoria, Receita, User
+'''
+Comando para realizar test utilizando o covarage
 
+coverage run manage.py test apps/receitas/tests/
+
+coverage cria uma lista de teste feitos no projeto.
+'''
 class ReceitaModelTest(TestCase):
     
     def test_recipe_home_template_loads_recipes(self):
