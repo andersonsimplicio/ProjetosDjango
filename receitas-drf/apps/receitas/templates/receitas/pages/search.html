@@ -1,1 +1,17 @@
-olá
+{% extends "global/base.html" %}
+{% load static %}
+{% autoescape on %}
+{% block title %}{{page_title | escape}}{% endblock title %}
+
+{% block main %}    
+        <div class="main-content main-content-list container">
+            {% if receitas %}
+            {% for receita in receitas %}
+                {% include 'receitas/partials/receita.html' %}
+            {% endfor %}
+            {% else %}
+                <h1>Não existe receitas 🥲</h1>
+            {% endif %}
+        </div>  
+{% endblock %}
+{% endautoescape %}
