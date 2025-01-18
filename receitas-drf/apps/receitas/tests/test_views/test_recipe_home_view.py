@@ -4,7 +4,7 @@ from apps.receitas.views import home
 from django.contrib.auth.models import User
 from apps.receitas.tests.test_recipe_base import RecipeTestBase
 from unittest import skip #utilizado para pular um teste
-
+from unittest.mock import patch
 
 class RecipeHomeViewTest(RecipeTestBase):
     
@@ -52,3 +52,17 @@ class RecipeHomeViewTest(RecipeTestBase):
             response = self.client.get(reverse('apps.receitas:home'))
             # Check if one recipe exists
             self.assertIn('<h1>Não existe receitas 🥲</h1>', response.content.decode('utf-8'))
+    
+    def test_recipe_home_is_paginated(self):
+        for i in range(8):
+            kwargs = {'slug': f'r{i}', 'author_data': {'username': f'u{i}'}}
+            self.make_recipe(**kwargs)
+            
+        with patch('apps.receitas.views.PER_PAGE', new=3):
+            response = self.client.get(reverse('apps.receitas:home'))
+            recipes = response.context['receitas']
+            paginator = recipes.paginator
+            self.assertEqual(paginator.num_pages, 3)
+            self.assertEqual(len(paginator.get_page(1)), 3)
+            self.assertEqual(len(paginator.get_page(2)), 3)
+            self.assertEqual(len(paginator.get_page(3)), 2)

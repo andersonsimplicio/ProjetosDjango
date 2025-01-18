@@ -4,6 +4,7 @@
 {% block title %}{{title}}{% endblock title %}
 
 {% block main %}    
+        {% include 'receitas/partials/messages.html' %}
         <div class="main-content main-content-list container">
             {% if receitas %}
             {% for receita in receitas %}
