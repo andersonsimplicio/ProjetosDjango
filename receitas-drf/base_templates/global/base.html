@@ -2,15 +2,16 @@
 {% load static %}
 <html lang="pt-br">
 <head>
-{% include 'partials/head.html' %}
+{% include 'global/partials/head.html' %}
 
 <title>{% block title %}{% endblock title %} | Receitas</title>
 </head>
 <body>
     {% include "receitas/partials/header.html" %}
     {% include "receitas/partials/search.html" %}
+    
     <main class="main-content-container">
-    {% block main %}{% endblock %}
+    {%block content  %} {% endblock %}
     {% include 'receitas/partials/pagination.html' %}
     </main>
     {% include 'receitas/partials/footer.html' %}

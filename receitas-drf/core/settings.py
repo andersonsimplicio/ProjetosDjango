@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.receitas.apps.ReceitasConfig'    
+    'apps.receitas.apps.ReceitasConfig',
+    'apps.authors.apps.AuthorsConfig', 
 ]
 
 MIDDLEWARE = [
@@ -131,7 +132,8 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"core","static"),
-    os.path.join(BASE_DIR,"apps","receitas","static")
+    os.path.join(BASE_DIR,"apps","receitas","static"),
+     os.path.join(BASE_DIR,"apps","authors","static")
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")

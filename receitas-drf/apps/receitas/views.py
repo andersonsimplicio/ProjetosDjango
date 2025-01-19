@@ -66,7 +66,7 @@ def search(request):
         is_published=True)
     
     
-    page_obj, pagination_range = make_pagination(request, recipes, PER_PAGE)
+    page_obj, pagination_range = make_pagination(request, receitas, PER_PAGE)
     context = {
                    'page_title': f'Busca por "{search_term}" ',
                    'search_term': search_term,

@@ -3,7 +3,8 @@
 {% autoescape on %}
 {% block title %}{{page_title | escape}}{% endblock title %}
 
-{% block main %}    
+
+{% block content  %}   
         <div class="main-content main-content-list container">
             {% if receitas %}
             {% for receita in receitas %}
