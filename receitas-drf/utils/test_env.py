@@ -12,9 +12,7 @@ load_dotenv(dotenv_path=dotenv_path)
 def test_env_variables():
     # Verificar se as variáveis foram carregadas corretamente
     config = dotenv_values(".env") 
-    print(config)
     load_dotenv()
-    print("SECRET_KEY:", os.getenv("SECRET_KEY"))
     secret_key = os.getenv('SECRET_KEY')
     
     debug = os.getenv('DEBUG')

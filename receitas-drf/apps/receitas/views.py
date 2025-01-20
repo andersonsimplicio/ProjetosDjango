@@ -6,6 +6,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from utils.pagination import make_pagination
 
+
 import os
 PER_PAGE = int(os.environ.get('PER_PAGE', 6))
 

@@ -10,5 +10,4 @@ class AuthorsTestView(TestCase):
     
     def test_authors_template_loads_register(self):
         response = self.client.get(reverse('apps.authors:register'))
-
         self.assertIn('<h2>Register</h2>\n',response.content.decode('utf-8'))

@@ -20,9 +20,9 @@ class RecipeHomeViewTest(RecipeTestBase):
         response = self.client.get(reverse('apps.receitas:home'))        
         self.assertTemplateUsed(response, 'receitas/pages/home.html')
         self.assertTemplateUsed(response, 'global/base.html')
-        self.assertTemplateUsed(response, 'receitas/partials/header.html')
-        self.assertTemplateUsed(response, 'receitas/partials/search.html')
-        self.assertTemplateUsed(response, 'receitas/partials/footer.html')
+        self.assertTemplateUsed(response, 'global/partials/header.html')
+        self.assertTemplateUsed(response, 'global/partials/search.html')
+        self.assertTemplateUsed(response, 'global/partials/footer.html')
     
     #@skip("Apenas um teste de pulo de teste")        
     def test_recipe_home_template_shows_no_recipes_found_if_no_recipes(self):
@@ -66,3 +66,24 @@ class RecipeHomeViewTest(RecipeTestBase):
             self.assertEqual(len(paginator.get_page(1)), 3)
             self.assertEqual(len(paginator.get_page(2)), 3)
             self.assertEqual(len(paginator.get_page(3)), 2)
+    
+    def test_invalid_page_query_uses_page_one(self):
+        for i in range(8):
+            kwargs = {'slug': f'r{i}', 'author_data': {'username': f'u{i}'}}
+            self.make_recipe(**kwargs)
+        with patch('apps.receitas.views.PER_PAGE', new=3):
+            response = self.client.get(reverse('apps.receitas:home') + '?page=12A')
+            self.assertEqual(
+                response.context['receitas'].number,
+                1
+            )
+            response = self.client.get(reverse('apps.receitas:home') + '?page=2')
+            self.assertEqual(
+                response.context['receitas'].number,
+                2
+            )
+            response = self.client.get(reverse('apps.receitas:home') + '?page=3')
+            self.assertEqual(
+                response.context['receitas'].number,
+                3
+            )
