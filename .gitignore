@@ -30,3 +30,7 @@ staticfiles/
 
 # Ignore PyCharm settings folder
 .idea/
+
+*/bin/*
+bin/*
+bin/

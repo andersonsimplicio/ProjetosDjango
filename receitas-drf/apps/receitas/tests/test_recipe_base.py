@@ -2,15 +2,7 @@ from django.test import TestCase
 from apps.receitas.models import Categoria, Receita,User
 from django.urls import resolve, reverse
 
-class RecipeTestBase(TestCase):
-    
-    def setUp(self) -> None:
-        '''
-        # Imprime o ID da receita criada
-        print(f"ID da receita criada: {self.recipe.id}")
-        '''
-        return super().setUp()
-    
+class RecipeMixin:    
     def  make_category(self,name='Categoria')->Categoria:
         return Categoria.objects.create(name=name)
     
@@ -47,4 +39,15 @@ class RecipeTestBase(TestCase):
             preparation_steps_is_html=preparation_steps_is_html,
             is_published=is_published,
         )
-    
+    def make_recipe_in_batch(self, qtd=10):
+        recipes = []
+        for i in range(qtd):
+            kwargs = {'slug': f'r{i}', 'author_data': {'username': f'u{i}'}}
+            recipe = self.make_recipe(**kwargs)
+            recipes.append(recipe)
+        return recipes
+
+
+class RecipeTestBase(TestCase, RecipeMixin):
+    def setUp(self) -> None:
+        return super().setUp()

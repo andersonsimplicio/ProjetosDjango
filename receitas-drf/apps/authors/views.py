@@ -67,6 +67,7 @@ def login_create(request):
             username=form.cleaned_data.get('username', ''),
             password=form.cleaned_data.get('password', ''),
         )
+        print(f"usuário autenticado: {form.cleaned_data.get('username', '')} {form.cleaned_data.get('password', '')} {authenticated_user}")
         if authenticated_user is not None:
             messages.success(request, 'Your are logged in.')
             login(request, authenticated_user)
