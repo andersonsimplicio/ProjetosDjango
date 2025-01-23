@@ -39,7 +39,7 @@ class RegisterForms(forms.ModelForm):
         label='Sobrenome'
     )
     email = forms.EmailField(
-        error_messages={'required': 'E-mail é necessário'},
+        error_messages={'required': 'E-mail é necessário','invalid':'Não sabe escrever não?'},
         label='E-mail',
         help_text='O email válido: e.g. nome@email.com',
     )
@@ -80,7 +80,6 @@ class RegisterForms(forms.ModelForm):
         _email = self.cleaned_data.get('email')
        
         email_user = get_email(_email)
-        print(email_user)
         if email_user:
             raise ValidationError("Este e-mail já está registrado. Por favor, use outro e-mail.")
         return _email

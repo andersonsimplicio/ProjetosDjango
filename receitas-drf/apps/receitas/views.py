@@ -64,7 +64,7 @@ def search(request):
             Q(title__icontains=search_term) |
             Q(description__icontains=search_term),
         ),
-        is_published=True)
+        is_published=True).order_by('title')
     
     
     page_obj, pagination_range = make_pagination(request, receitas, PER_PAGE)

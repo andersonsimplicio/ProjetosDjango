@@ -1,5 +1,5 @@
 from django.urls import path
-from apps.authors.views import register_view,register_create,login_view,login_create,logout_view
+from apps.authors.views import register_view,register_create,login_view,login_create,logout_view,dashboard
 app_name = 'apps.authors'
 
 urlpatterns = [
@@ -10,4 +10,6 @@ urlpatterns = [
       path('login/create',login_create, name='login_create'),
       
       path('logout/',logout_view, name='logout'),
+      
+      path('dashboard/',dashboard, name='dashboard'),
 ]
