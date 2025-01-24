@@ -1,5 +1,6 @@
 from django.urls import path
-from apps.authors.views import register_view,register_create,login_view,login_create,logout_view,dashboard
+from apps.authors.views import (register_view,register_create,login_view,login_create,
+                                logout_view,dashboard,dashboard_recipe_edit)
 app_name = 'apps.authors'
 
 urlpatterns = [
@@ -12,4 +13,5 @@ urlpatterns = [
       path('logout/',logout_view, name='logout'),
       
       path('dashboard/',dashboard, name='dashboard'),
+      path('dashboard/receita/<int:id>/edit/',dashboard_recipe_edit,name='dashboard_recipe_edit'),
 ]

@@ -67,4 +67,10 @@ body {
             margin: 0 auto;
             padding: var(--spacing-gutter-medium);
         }
-       
+        img {
+            max-width: 100%;
+          }
+          a {
+            color: var(--color-primary);
+            text-decoration: none;
+          }
