@@ -6,6 +6,18 @@ Este repositório é destinado a guardar diversos projetos desenvolvidos com o f
   <img src="img/programer.gif" alt="Imagem Ilustrativa">
 </p>
 
+## Atualize todo os pacotes do pip
+
+```
+pip list --outdated | awk 'NR>2 {print $1}' | xargs -n1 pip install -U
+
+```
+ou execute:
+```
+   python update.py 
+
+```
+
 ## Estrutura do Repositório
 
 - `venv/`: Ambiente virtual Python utilizado para gerenciar as dependências dos projetos. 
