@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.urls import reverse
 
 
 class Categoria(models.Model):
@@ -33,3 +33,6 @@ class Receita(models.Model):
     
     def __str__(self):
         return self.title
+    
+    def get_absolute_url(self):
+       return reverse('apps.receitas:receita', args=(self.id,))
