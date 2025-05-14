@@ -1,0 +1,74 @@
+@import url('estilo.css');
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+.header-login{
+    display: flex;
+    border-bottom: #4ea066 2px solid;
+}
+.header-login img{
+    width: 100px;
+}
+hr{
+    color: #1b4699;
+}
+
+.login-box {
+    width: 320px;
+    border: 2px solid #1b4699;
+    border-radius: 12px;
+    padding: 24px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.logo {
+max-width: 100%;
+height: auto;
+margin-bottom: 12px;
+}
+
+form {
+margin-top: 15px;
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+label {
+text-align: left;
+font-weight: 700;
+color: var(--azul-escuro);
+font-size: 1.1em;
+}
+
+input {
+padding: 10px;
+border: 2px solid var(--azul-escuro);
+border-radius: 10px;
+outline: none;
+font-size: 1em;
+}
+
+button {
+background-color: var(--azul-escuro);
+color: white;
+border: none;
+padding: 12px;
+font-size: 1em;
+font-weight: bold;
+border-radius: 8px;
+cursor: pointer;
+margin-top: 10px;
+box-shadow: 0 0 0 2px #4ea066;
+transition: 0.3s ease;
+}
+
+button:hover {
+background-color: #265b8d;
+}
+
