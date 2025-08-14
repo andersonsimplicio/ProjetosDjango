@@ -70,32 +70,3 @@ ENV/
 pip-wheel-metadata/
 
 
-########################################
-# NODE / REACT
-########################################
-node_modules/
-dist/
-build/
-.cache/
-.eslintcache
-*.tsbuildinfo
-*.tgz
-coverage/
-
-########################################
-# LOCK FILES
-########################################
-package-lock.json
-yarn.lock
-.pnp/
-.pnp.js
-
-########################################
-# ENV FILES
-########################################
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-
